@@ -22,8 +22,8 @@ class Tema:
     borda: str
     texto: str
     secundario: str  # textos de apoio
-    destaque1: str  # violeta
-    destaque2: str  # ciano
+    destaque1: str  # vermelho principal
+    destaque2: str  # segundo tom de vermelho do degradê
     pontos: str  # pontinhos do fundo do banner
     pontos_opacidade: float
     brilho_opacidade: float
@@ -34,13 +34,13 @@ class Tema:
 TEMAS = {
     "dark": Tema(
         fundo="#0d1117",
-        fundo2="#12162b",
+        fundo2="#1c1012",
         superficie="#161b22",
         borda="#30363d",
         texto="#e6edf3",
         secundario="#8b949e",
-        destaque1="#a78bfa",
-        destaque2="#22d3ee",
+        destaque1="#f85149",
+        destaque2="#ffa198",
         pontos="#ffffff",
         pontos_opacidade=0.06,
         brilho_opacidade=0.30,
@@ -49,13 +49,13 @@ TEMAS = {
     ),
     "light": Tema(
         fundo="#ffffff",
-        fundo2="#f4f1ff",
+        fundo2="#fff0f0",
         superficie="#f6f8fa",
         borda="#d0d7de",
         texto="#1f2328",
         secundario="#59636e",
-        destaque1="#7c3aed",
-        destaque2="#0891b2",
+        destaque1="#a40e26",
+        destaque2="#fa4549",
         pontos="#1f2328",
         pontos_opacidade=0.07,
         brilho_opacidade=0.16,
@@ -132,7 +132,7 @@ def cor_legivel(cor: str, fundo: str, texto: str, minimo: float = 2.2) -> str:
 
 
 def gradiente_destaque(t: Tema) -> str:
-    """Degradê violeta → ciano usado nos títulos e números de destaque."""
+    """Degradê entre os dois tons de vermelho usado nos títulos e números de destaque."""
     return (
         '<linearGradient id="destaque" x1="0" y1="0" x2="1" y2="0">'
         f'<stop offset="0" stop-color="{t.destaque1}"/>'
